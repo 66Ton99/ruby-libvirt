@@ -148,6 +148,10 @@ SPEC = Gem::Specification.new do |s|
     s.license = "LGPLv2"
 end
 
+if RUBY_PLATFORM =~ /universal.x86_64-darwin/
+   ENV['ARCHFLAGS'] = '-arch x86_64'
+end
+
 Gem::PackageTask.new(SPEC) do |pkg|
     pkg.need_tar = true
     pkg.need_zip = true
